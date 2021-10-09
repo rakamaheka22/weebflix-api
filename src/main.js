@@ -5,6 +5,7 @@ import VueAxios from 'vue-axios';
 import firebase from 'firebase/compat/app';
 import App from './App.vue';
 import router from './router';
+import store from './store';
 
 const {
   VUE_APP_API_KEY,
@@ -32,5 +33,6 @@ Vue.config.productionTip = false;
 
 new Vue({
   router,
+  store,
   render: (h) => h(App),
 }).$mount('#app');

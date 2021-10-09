@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <h1>is count 0 ?{{ isCountZero }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
@@ -32,10 +32,44 @@
 </template>
 
 <script>
+
+import types from '../store/types';
+
 export default {
   name: 'HelloWorld',
   props: {
     msg: String,
+  },
+  computed: {
+    isCountZero() {
+      return !this.$store.state.count;
+    },
+  },
+  mounted() {
+    this.fetchData();
+    this.$store.commit(types.SET_COUNT, 3);
+    this.$store.commit(types.SET_MESSAGE, 'Count Ditambahkan!');
+
+    // console.log(this.$store.state.count);
+    // console.log(this.$store.state.message);
+    // console.log(this.$store.state.is_completed);
+    // console.log('is count 0 ? ', this.$store.getters.isCountZero);
+    // console.log('is count completed ? ', this.$store.getters.isCountCompleted);
+  },
+  methods: {
+    fetchData() {
+      this.$store.dispatch('pokemon/findPokemonByName', {
+        param1: 'ditto',
+        param2: 1,
+      });
+
+      const isTrue = this.$store.dispatch('namaFunc', 'jahskjdhasjkd');
+      if (isTrue) {
+        console.log('berhasil');
+      } else {
+        console.log('gagal');
+      }
+    },
   },
 };
 </script>

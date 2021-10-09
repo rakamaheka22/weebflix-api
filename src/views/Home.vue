@@ -33,10 +33,10 @@ export default {
     // this.fetchData();
     // this.asinkronKode();
     // this.hitApi();
-    firebase.auth().onAuthStateChanged((res) => {
-      if (res) console.log(true);
-      else console.log(false);
-    });
+    // firebase.auth().onAuthStateChanged((res) => {
+    //   if (res) console.log(true);
+    //   else console.log(false);
+    // });
   },
   methods: {
     async fetchListFilms() {
